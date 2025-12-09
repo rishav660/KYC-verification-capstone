@@ -14,7 +14,20 @@ connectDB();
 
 // Middleware
 app.use(cors({
-    origin: process.env.CORS_ORIGIN || 'http://localhost:5173',
+    origin: function (origin, callback) {
+        // Allow requests with no origin (Postman, curl, etc.)
+        if (!origin) return callback(null, true);
+
+        // Allow localhost for development
+        if (origin.includes('localhost')) return callback(null, true);
+
+        // Allow all Vercel frontend deployments
+        if (origin.includes('vercel.app')) return callback(null, true);
+
+        // Otherwise block
+        console.log('❌ CORS blocked:', origin);
+        callback(new Error('Not allowed by CORS'));
+    },
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
@@ -53,14 +66,17 @@ app.use((err, req, res, next) => {
     });
 });
 
-// Start server
+// Start server (only in development, not on Vercel)
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-    console.log('Backend running');
-    console.log(`🚀 Server running on port ${PORT}`);
-    console.log(`📍 API available at http://localhost:${PORT}`);
-    console.log(`🏥 Health check: http://localhost:${PORT}/health`);
-});
+if (process.env.NODE_ENV !== 'production' && require.main === module) {
+    app.listen(PORT, () => {
+        console.log('Backend running');
+        console.log(`🚀 Server running on port ${PORT}`);
+        console.log(`📍 API available at http://localhost:${PORT}`);
+        console.log(`🏥 Health check: http://localhost:${PORT}/health`);
+    });
+}
 
+// Export for Vercel serverless
 module.exports = app;
