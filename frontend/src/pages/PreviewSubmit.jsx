@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import api from '../api/axios';
 import { useKYC } from '../context/KYCContext';
 import { HeaderBanner } from '../components/HeaderBanner';
 import { ProgressBar } from '../components/ProgressBar';
@@ -56,7 +56,7 @@ const PreviewSubmit = () => {
             };
 
             console.log('📤 Uploading compressed images...');
-            const response = await axios.post('http://localhost:5000/api/kyc/submit-kyc', submissionData);
+            const response = await api.post('/api/kyc/submit-kyc', submissionData);
 
             if (response.data.duplicate) {
                 navigate('/status', { state: { status: 'duplicate', message: 'Duplicate record found.' } });
@@ -181,8 +181,8 @@ const PreviewSubmit = () => {
                             onClick={handleSubmit}
                             disabled={isSubmitting || !!validationError}
                             className={`w-full md:w-auto px-12 py-4 font-bold rounded-lg shadow-lg transition-all transform ${isSubmitting || validationError
-                                    ? 'bg-muted text-muted-foreground cursor-not-allowed'
-                                    : 'bg-accent text-accent-foreground hover:bg-accent/90 hover:scale-105'
+                                ? 'bg-muted text-muted-foreground cursor-not-allowed'
+                                : 'bg-accent text-accent-foreground hover:bg-accent/90 hover:scale-105'
                                 }`}
                         >
                             {isSubmitting ? (

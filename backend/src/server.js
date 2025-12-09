@@ -14,7 +14,7 @@ connectDB();
 
 // Middleware
 app.use(cors({
-    origin: 'http://localhost:5173', // Frontend URL
+    origin: process.env.CORS_ORIGIN || 'http://localhost:5173', // Frontend URL
     credentials: true,
 }));
 
@@ -52,7 +52,7 @@ app.use((err, req, res, next) => {
 });
 
 // Start server
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
     console.log('Backend running');
