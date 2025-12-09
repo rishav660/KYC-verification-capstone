@@ -30,16 +30,22 @@ const CaptureSelfie = () => {
         };
     }, []);
 
+    useEffect(() => {
+        if (isWebcamActive && stream && videoRef.current) {
+            videoRef.current.srcObject = stream;
+        }
+    }, [isWebcamActive, stream]);
+
     const startWebcam = async () => {
         try {
             const mediaStream = await navigator.mediaDevices.getUserMedia({
                 video: { facingMode: 'user', width: { ideal: 1280 }, height: { ideal: 720 } }
             });
             setStream(mediaStream);
-            if (videoRef.current) videoRef.current.srcObject = mediaStream;
             setIsWebcamActive(true);
             setError(null);
         } catch (err) {
+            console.error("Webcam error:", err);
             setError('Unable to access webcam. Please check permissions.');
             setIsWebcamActive(false);
         }
@@ -169,8 +175,8 @@ const CaptureSelfie = () => {
 
                             {matchResult && !isMatching && (
                                 <div className={`p-6 rounded-lg border-2 max-w-sm mx-auto ${matchResult.match
-                                        ? 'bg-green-50 border-green-200'
-                                        : 'bg-destructive/10 border-destructive/20'
+                                    ? 'bg-green-50 border-green-200'
+                                    : 'bg-destructive/10 border-destructive/20'
                                     }`}>
                                     {matchResult.match ? (
                                         <>
@@ -210,8 +216,8 @@ const CaptureSelfie = () => {
                                     onClick={handleProceed}
                                     disabled={!matchResult?.match}
                                     className={`flex-1 py-3 font-bold rounded-lg shadow-md transition-transform ${matchResult?.match
-                                            ? 'bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105'
-                                            : 'bg-muted text-muted-foreground cursor-not-allowed'
+                                        ? 'bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105'
+                                        : 'bg-muted text-muted-foreground cursor-not-allowed'
                                         }`}
                                 >
                                     Next Step
