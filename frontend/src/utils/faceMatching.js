@@ -118,9 +118,14 @@ export async function compareFaces(passportPhotoBase64, selfieBase64) {
 
         console.log('📊 Face distance:', distance.toFixed(4));
 
-        // A lower distance means more similar faces
-        // Threshold of 0.6: distance < 0.6 = match, distance >= 0.6 = no match
-        const threshold = 0.6;
+        // Threshold adjusted for stricter matching
+        // Confidence = (1 - distance) * 100
+        // To require minimum 60% confidence: distance must be <= 0.4
+        // Examples:
+        //   distance 0.30 → 70% confidence ✅ PASS
+        //   distance 0.40 → 60% confidence ✅ PASS
+        //   distance 0.50 → 50% confidence ❌ FAIL
+        const threshold = 0.4;
         const match = distance < threshold;
         const confidence = Math.max(0, Math.min(100, Math.round((1 - distance) * 100)));
 
