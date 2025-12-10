@@ -1,7 +1,6 @@
 # Digital KYC Verification System
 
-> **🚀 Live Demo**: [https://frontend-three-ochre-64.vercel.app](https://frontend-three-ochre-64.vercel.app)  
-> **📦 Repository**: [https://gitlab.com/rishavbora1020-group/kyc-capstone](https://gitlab.com/rishavbora1020-group/kyc-capstone)
+> **🚀 Live Demo**: [https://frontend-three-ochre-64.vercel.app](https://frontend-three-ochre-64.vercel.app)
 
 A comprehensive web-based KYC (Know Your Customer) verification platform that automates identity verification using OCR, face matching, and duplicate detection algorithms.
 
@@ -73,8 +72,8 @@ This Digital KYC system enables users to complete identity verification entirely
 
 **1. Clone Repository**
 ```bash
-git clone https://gitlab.com/rishavbora1020-group/kyc-capstone.git
-cd kyc-capstone
+git clone https://github.com/Rishav-99-code/digital-kyc-capstone.git
+cd digital-kyc-capstone
 ```
 
 **2. Backend Setup**
