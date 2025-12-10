@@ -121,7 +121,14 @@ const CaptureSelfie = () => {
                 <div className="bg-card rounded-xl shadow-lg border border-border p-8 animate-fadeIn">
                     <h2 className="text-2xl font-bold text-primary mb-2">Capture Live Selfie</h2>
                     <p className="text-muted-foreground mb-4">Take a clear photo of yourself for face verification.</p>
-                    <p className="text-xs text-primary/70 mb-8">✨ Face matching happens in your browser - your photos never leave your device!</p>
+                    <p className="text-xs text-primary/70 mb-4">✨ Face matching happens in your browser - your photos never leave your device!</p>
+                    <button 
+                        onClick={() => navigate(-1)}
+                        className="mb-6 px-6 py-2 border-2 border-border text-muted-foreground font-semibold rounded-lg hover:bg-muted/50 transition-colors inline-flex items-center gap-2"
+                    >
+                        ← Back
+                    </button>
+
 
                     {error && (
                         <div className="mb-6 p-4 bg-destructive/10 border border-destructive/20 rounded-lg">

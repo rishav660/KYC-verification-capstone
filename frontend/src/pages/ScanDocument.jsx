@@ -510,7 +510,14 @@ const ScanDocument = () => {
 
                 <div className="bg-card rounded-xl shadow-lg border border-border p-8 animate-fadeIn">
                     <h2 className="text-2xl font-bold text-primary mb-2">Upload {documentType}</h2>
-                    <p className="text-muted-foreground mb-8">Please upload a clear copy of your {documentType}.</p>
+                    <p className="text-muted-foreground mb-4">Please upload a clear copy of your {documentType}.</p>
+                    <button 
+                        onClick={() => navigate(-1)}
+                        className="mb-6 px-6 py-2 border-2 border-border text-muted-foreground font-semibold rounded-lg hover:bg-muted/50 transition-colors inline-flex items-center gap-2"
+                    >
+                        ← Back
+                    </button>
+
 
                     {!uploadMode && !capturedImage && (
                         <div className="space-y-6">
