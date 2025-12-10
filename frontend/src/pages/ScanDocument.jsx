@@ -427,20 +427,24 @@ const ScanDocument = () => {
         }
     };
 
+    useEffect(() => {
+        if (isWebcamActive && stream && videoRef.current) {
+            videoRef.current.srcObject = stream;
+        }
+    }, [isWebcamActive, stream]);
+
     const startWebcam = async () => {
         try {
             const mediaStream = await navigator.mediaDevices.getUserMedia({
                 video: { facingMode: 'environment' }
             });
             setStream(mediaStream);
-            if (videoRef.current) {
-                videoRef.current.srcObject = mediaStream;
-            }
             setIsWebcamActive(true);
             setUploadMode('webcam');
             setCapturedImage(null);
         } catch (err) {
-            alert('Unable to access webcam.');
+            console.error("Webcam error:", err);
+            alert('Unable to access webcam. Please check permissions.');
         }
     };
 
@@ -511,7 +515,7 @@ const ScanDocument = () => {
                 <div className="bg-card rounded-xl shadow-lg border border-border p-8 animate-fadeIn">
                     <h2 className="text-2xl font-bold text-primary mb-2">Upload {documentType}</h2>
                     <p className="text-muted-foreground mb-4">Please upload a clear copy of your {documentType}.</p>
-                    <button 
+                    <button
                         onClick={() => navigate(-1)}
                         className="mb-6 px-6 py-2 border-2 border-border text-muted-foreground font-semibold rounded-lg hover:bg-muted/50 transition-colors inline-flex items-center gap-2"
                     >
