@@ -144,7 +144,7 @@ npm run dev
 ##  Team
 
 **Developer**: Rishav Bora  
-**Year**: 2024-2025
+**Year**: 2025
 
 ##  License
 
