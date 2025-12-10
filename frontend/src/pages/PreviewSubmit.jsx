@@ -95,7 +95,13 @@ const PreviewSubmit = () => {
                 <ProgressBar currentStep={6} totalSteps={6} />
 
                 <div className="bg-card rounded-xl shadow-lg border border-border p-8 animate-fadeIn">
-                    <h2 className="text-2xl font-bold text-primary mb-6">Review Application</h2>
+                    <h2 className="text-2xl font-bold text-primary mb-2">Review Application</h2>
+                    <button 
+                        onClick={() => navigate(-1)}
+                        className="mb-6 px-6 py-2 border-2 border-border text-muted-foreground font-semibold rounded-lg hover:bg-muted/50 transition-colors inline-flex items-center gap-2"
+                    >
+                        ← Back
+                    </button>
 
                     {validationError && (
                         <div className="mb-6 p-4 bg-destructive/10 border border-destructive/20 rounded-lg">
