@@ -1,14 +1,16 @@
 # Digital KYC Verification System
 
-> **🚀 Live Demo**: [https://frontend-three-ochre-64.vercel.app](https://frontend-three-ochre-64.vercel.app)
+> ** Live Demo**: [https://frontend-three-ochre-64.vercel.app](https://frontend-three-ochre-64.vercel.app)
+
+> ** PPT link:** : https://drive.google.com/drive/folders/18U9RnGofJQAocGcUhUw3XeJawXweyTd3?usp=drive_link
 
 A comprehensive web-based KYC (Know Your Customer) verification platform that automates identity verification using OCR, face matching, and duplicate detection algorithms.
 
-## 🎯 Overview
+##  Overview
 
 This Digital KYC system enables users to complete identity verification entirely online by uploading identity documents, address proofs, and capturing a live selfie. The system automatically extracts information using OCR, performs face matching to verify identity, and detects duplicate submissions to prevent fraud.
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 ┌──────────────┐         ┌──────────────┐         ┌──────────────┐
@@ -29,7 +31,7 @@ This Digital KYC system enables users to complete identity verification entirely
 - **Storage**: Cloudinary
 - **Deployment**: Vercel + Render + MongoDB Atlas
 
-## ✨ Key Features
+##  Key Features
 
 ### User Journey
 1. **Personal Information** - Name, email, phone, DOB, gender with real-time validation
@@ -61,7 +63,7 @@ This Digital KYC system enables users to complete identity verification entirely
 - Brightness, blur, resolution, and file size checks
 - Supports JPEG, PNG, and PDF formats
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 - Node.js (v18+)
@@ -107,13 +109,13 @@ npm run dev
 - Frontend: http://localhost:5173
 - Backend: http://localhost:5000
 
-## 🌐 Production Deployment
+##  Production Deployment
 
 - **Frontend**: https://frontend-three-ochre-64.vercel.app (Vercel)
 - **Backend**: https://kyc-capstone.onrender.com (Render)
 - **Database**: MongoDB Atlas
 
-## 🔒 Security
+##  Security
 
 - HTTPS/TLS encryption
 - Client and server-side input validation
@@ -122,7 +124,7 @@ npm run dev
 - NoSQL injection prevention
 - 10MB file upload limit
 
-## 📊 Performance
+##  Performance
 
 - Image compression (max 500KB)
 - Lazy loading of ML models
@@ -130,7 +132,7 @@ npm run dev
 - CDN-served images via Cloudinary
 - Optimized MongoDB indexing
 
-## 📝 Future Enhancements
+##  Future Enhancements
 
 - [ ] Aadhaar OTP verification via UIDAI API
 - [ ] DigiLocker integration
@@ -139,12 +141,12 @@ npm run dev
 - [ ] Admin dashboard with analytics
 - [ ] Email/SMS notifications
 
-## 👥 Team
+##  Team
 
 **Developer**: Rishav Bora  
 **Year**: 2024-2025
 
-## 📄 License
+##  License
 
 This project is developed as a capstone project for academic purposes.
 
